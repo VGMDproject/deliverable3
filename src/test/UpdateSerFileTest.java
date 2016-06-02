@@ -36,10 +36,11 @@ public class UpdateSerFileTest {
 	private ArrayList<User> userArrayList;
 
 	/**
-	 * Test method for {@link conference_management.UpdateSerFile#UpdateSerFile(java.lang.Object)}.
-	 * 		Test to see if a new instance of this class is created
-	 * 		input value is an instance of an Object
-	 *  
+	 * Test method for
+	 * {@link conference_management.UpdateSerFile#UpdateSerFile(java.lang.Object)}
+	 * . Test to see if a new instance of this class is created input value is
+	 * an instance of an Object
+	 * 
 	 */
 	@Test
 	public final void testUpdateSerFilePassingNull() {
@@ -48,15 +49,17 @@ public class UpdateSerFileTest {
 		try {
 			new UpdateSerFile(object);
 		} catch (Exception e) {
-			fail("Unable to make and instance of " + this.getClass().getSimpleName() + " with passing in a null object");
+			fail("Unable to make and instance of " + this.getClass().getSimpleName()
+					+ " with passing in a null object");
 		}
 	}
 
 	/**
-	 * Test method for {@link conference_management.UpdateSerFile#UpdateSerFile(java.lang.Object)}.
-	 * 		Test to see if a new instance of this class is created
-	 * 		input value is an instance of an Object
-	 *  
+	 * Test method for
+	 * {@link conference_management.UpdateSerFile#UpdateSerFile(java.lang.Object)}
+	 * . Test to see if a new instance of this class is created input value is
+	 * an instance of an Object
+	 * 
 	 */
 	@Test
 	public final void testUpdateSerFilePassingObject() {
@@ -65,14 +68,17 @@ public class UpdateSerFileTest {
 		try {
 			new UpdateSerFile(object);
 		} catch (Exception e) {
-			fail("Unable to make and instance of " + this.getClass().getSimpleName() + " with passing in an instance of an object");
+			fail("Unable to make and instance of " + this.getClass().getSimpleName()
+					+ " with passing in an instance of an object");
 		}
 	}
 
 	/**
-	 * Test method for {@link conference_management.UpdateSerFile#deserialize()}.
-	 * 		Test to deserialize conference.ser to see if the return object is an ArrayList
-	 * @throws ClassNotFoundException 
+	 * Test method for {@link conference_management.UpdateSerFile#deserialize()}
+	 * . Test to deserialize conference.ser to see if the return object is an
+	 * ArrayList
+	 * 
+	 * @throws ClassNotFoundException
 	 */
 	@Test
 	public final void testDeserializeIsReturnArrayList() {
@@ -80,16 +86,16 @@ public class UpdateSerFileTest {
 		Object myObject = new Object();
 		myObject = myUpdateSerFile.deserialize();
 
-//		assertNotNull(myObject);
-		if(myObject != null) {
+		// assertNotNull(myObject);
+		if (myObject != null) {
 			assertTrue(myObject instanceof ArrayList);
 		}
 	}
 
 	/**
-	 * Test method for {@link conference_management.UpdateSerFile#deserialize()}.
-	 * 		Test to deserialize conference.ser to see if it is possible to cast the return object
-	 * 		to an ArrayList
+	 * Test method for {@link conference_management.UpdateSerFile#deserialize()}
+	 * . Test to deserialize conference.ser to see if it is possible to cast the
+	 * return object to an ArrayList
 	 */
 	@SuppressWarnings("unchecked")
 	@Test
@@ -100,9 +106,9 @@ public class UpdateSerFileTest {
 	}
 
 	/**
-	 * Test method for {@link conference_management.UpdateSerFile#deserialize()}.
-	 * 		Test to deserialize paper.ser to see if it is possible to cast the return object
-	 * 		to an ArrayList
+	 * Test method for {@link conference_management.UpdateSerFile#deserialize()}
+	 * . Test to deserialize paper.ser to see if it is possible to cast the
+	 * return object to an ArrayList
 	 */
 	@SuppressWarnings("unchecked")
 	@Test
@@ -114,9 +120,9 @@ public class UpdateSerFileTest {
 	}
 
 	/**
-	 * Test method for {@link conference_management.UpdateSerFile#deserialize()}.
-	 * 		Test to deserialize user.ser to see if it is possible to cast the return object
-	 * 		to an ArrayList
+	 * Test method for {@link conference_management.UpdateSerFile#deserialize()}
+	 * . Test to deserialize user.ser to see if it is possible to cast the
+	 * return object to an ArrayList
 	 */
 	@SuppressWarnings("unchecked")
 	@Test
@@ -128,9 +134,9 @@ public class UpdateSerFileTest {
 	}
 
 	/**
-	 * Test method for {@link conference_management.UpdateSerFile#deserialize()}.
-	 * 		Test to deserialize user.ser to see if it is possible to cast the return object
-	 * 		to an ArrayList
+	 * Test method for {@link conference_management.UpdateSerFile#deserialize()}
+	 * . Test to deserialize user.ser to see if it is possible to cast the
+	 * return object to an ArrayList
 	 */
 	@Test
 	public final void testDeserializeInvalid() {
@@ -142,12 +148,14 @@ public class UpdateSerFileTest {
 		} catch (Exception e) {
 		}
 	}
-	
+
 	/**
-	 * Test method for {@link conference_management.UpdateSerFile#makeSerialize(java.lang.Object)}.
-	 * 		Test to see if it is possible to serialize an ArrayList of Conferences
-	 * 		The test happens only if the previous corresponding deserialize test put some data
-	 * 		into the  the ArrayList of Conferences, otherwise, data lost might happen.
+	 * Test method for
+	 * {@link conference_management.UpdateSerFile#makeSerialize(java.lang.Object)}
+	 * . Test to see if it is possible to serialize an ArrayList of Conferences
+	 * The test happens only if the previous corresponding deserialize test put
+	 * some data into the the ArrayList of Conferences, otherwise, data lost
+	 * might happen.
 	 */
 	@SuppressWarnings("unchecked")
 	@Test
@@ -156,8 +164,8 @@ public class UpdateSerFileTest {
 		myUpdateSerFile = new UpdateSerFile(new Conference());
 		conferenceArrayList = (ArrayList<Conference>) myUpdateSerFile.deserialize();
 
-//		assertNotNull(conferenceArrayList);
-		if(conferenceArrayList != null) {
+		// assertNotNull(conferenceArrayList);
+		if (conferenceArrayList != null) {
 			Conference localConference = new Conference();
 			myUpdateSerFile = new UpdateSerFile(localConference);
 			myUpdateSerFile.makeSerialize(conferenceArrayList);
@@ -165,10 +173,11 @@ public class UpdateSerFileTest {
 	}
 
 	/**
-	 * Test method for {@link conference_management.UpdateSerFile#makeSerialize(java.lang.Object)}.
-	 * 		Test to see if it is possible to serialize an ArrayList of Paper
-	 * 		The test happens only if the previous corresponding deserialize test put some data
-	 * 		into the  the ArrayList of Paper, otherwise, data lost might happen.
+	 * Test method for
+	 * {@link conference_management.UpdateSerFile#makeSerialize(java.lang.Object)}
+	 * . Test to see if it is possible to serialize an ArrayList of Paper The
+	 * test happens only if the previous corresponding deserialize test put some
+	 * data into the the ArrayList of Paper, otherwise, data lost might happen.
 	 */
 	@SuppressWarnings("unchecked")
 	@Test
@@ -177,18 +186,19 @@ public class UpdateSerFileTest {
 		myUpdateSerFile = new UpdateSerFile(new Paper());
 		paperArrayList = (ArrayList<Paper>) myUpdateSerFile.deserialize();
 
-//		assertNotNull(paperArrayList);
-		if(paperArrayList != null) {
+		// assertNotNull(paperArrayList);
+		if (paperArrayList != null) {
 			myUpdateSerFile = new UpdateSerFile(new Paper());
 			myUpdateSerFile.makeSerialize(paperArrayList);
 		}
 	}
 
 	/**
-	 * Test method for {@link conference_management.UpdateSerFile#makeSerialize(java.lang.Object)}.
-	 * 		Test to see if it is possible to serialize an ArrayList of User
-	 * 		The test happens only if the previous corresponding deserialize test put some data
-	 * 		into the  the ArrayList of User, otherwise, data lost might happen.
+	 * Test method for
+	 * {@link conference_management.UpdateSerFile#makeSerialize(java.lang.Object)}
+	 * . Test to see if it is possible to serialize an ArrayList of User The
+	 * test happens only if the previous corresponding deserialize test put some
+	 * data into the the ArrayList of User, otherwise, data lost might happen.
 	 */
 	@SuppressWarnings("unchecked")
 	@Test
@@ -197,153 +207,164 @@ public class UpdateSerFileTest {
 		myUpdateSerFile = new UpdateSerFile(new User());
 		userArrayList = (ArrayList<User>) myUpdateSerFile.deserialize();
 
-//		assertNotNull(userArrayList);
-		if(userArrayList != null) {
+		// assertNotNull(userArrayList);
+		if (userArrayList != null) {
 			myUpdateSerFile = new UpdateSerFile(new User());
 			myUpdateSerFile.makeSerialize(userArrayList);
 		}
 	}
 
 	/**
-	 * Test method for {@link conference_management.UpdateSerFile#deserialize()}.
-	 * 		Test to deserialize conference.ser to see if the new written Conference ArrayList 
-	 * 		is the same as the Conference ArrayList that we deserialized before. In fact, this
-	 * 		test is to see if writing into conference.ser is working properly. The test checks
-	 * 		for the equal Conference ID, name, deadline, and status on each of Conferenes in 
-	 * 		both ArrayLists.
+	 * Test method for {@link conference_management.UpdateSerFile#deserialize()}
+	 * . Test to deserialize conference.ser to see if the new written Conference
+	 * ArrayList is the same as the Conference ArrayList that we deserialized
+	 * before. In fact, this test is to see if writing into conference.ser is
+	 * working properly. The test checks for the equal Conference ID, name,
+	 * deadline, and status on each of Conferenes in both ArrayLists.
 	 */
 	@SuppressWarnings("unchecked")
 	@Test
 	public final void testDeserializeConferenceBeforeAfter() {
-		//first fetch
+		// first fetch
 		conferenceArrayList = null;
 		myUpdateSerFile = new UpdateSerFile(new Conference());
 		conferenceArrayList = (ArrayList<Conference>) myUpdateSerFile.deserialize();
 
-		//serialize
-//		assertNotNull(conferenceArrayList);
-		if(conferenceArrayList != null) {
+		// serialize
+		// assertNotNull(conferenceArrayList);
+		if (conferenceArrayList != null) {
 			myUpdateSerFile = new UpdateSerFile(new Conference());
 			myUpdateSerFile.makeSerialize(conferenceArrayList);
 		}
 
-		//second fetch
+		// second fetch
 		ArrayList<Conference> conferenceArrayListNew = null;
 		myUpdateSerFile = new UpdateSerFile(new Conference());
 		conferenceArrayListNew = (ArrayList<Conference>) myUpdateSerFile.deserialize();
 
-//		assertNotNull(conferenceArrayList);
-//		assertNotNull(conferenceArrayListNew);
-		if(conferenceArrayListNew != null && conferenceArrayList != null) {
-			for(int i  = 0; i < conferenceArrayList.size(); i++) {
-				assertEquals(conferenceArrayList.get(i).getIDConference(), conferenceArrayListNew.get(i).getIDConference());
-				assertEquals(conferenceArrayList.get(i).getDeadline(), conferenceArrayListNew.get(i).getDeadline());
-				assertEquals(conferenceArrayList.get(i).getName(), conferenceArrayListNew.get(i).getName());
-				assertEquals(conferenceArrayList.get(i).getStatusConference(), conferenceArrayListNew.get(i).getStatusConference());
+		// assertNotNull(conferenceArrayList);
+		// assertNotNull(conferenceArrayListNew);
+		if (conferenceArrayListNew != null && conferenceArrayList != null) {
+			for (int i = 0; i < conferenceArrayList.size(); i++) {
+				assertEquals(conferenceArrayList.get(i).getIDConference(),
+						conferenceArrayListNew.get(i).getIDConference());
+				assertEquals(conferenceArrayList.get(i).getDeadline(), conferenceArrayListNew
+						.get(i).getDeadline());
+				assertEquals(conferenceArrayList.get(i).getName(), conferenceArrayListNew
+						.get(i).getName());
+				assertEquals(conferenceArrayList.get(i).getStatusConference(),
+						conferenceArrayListNew.get(i).getStatusConference());
 			}
 		}
 	}
 
 	/**
-	 * Test method for {@link conference_management.UpdateSerFile#deserialize()}.
-	 * 		Test to deserialize paper.ser to see if the new written Paper ArrayList 
-	 * 		is the same as the Paper ArrayList that we deserialized before. In fact, this
-	 * 		test is to see if writing into paper.ser is working properly. The test checks
-	 * 		for the equal Paper author user name, conference ID, file, ID, name, status, 
-	 * 		Program Chair if any, Subprogram Chair if any, Reviewer if any, review if any,
-	 * 		and recommendation if any.
+	 * Test method for {@link conference_management.UpdateSerFile#deserialize()}
+	 * . Test to deserialize paper.ser to see if the new written Paper ArrayList
+	 * is the same as the Paper ArrayList that we deserialized before. In fact,
+	 * this test is to see if writing into paper.ser is working properly. The
+	 * test checks for the equal Paper author user name, conference ID, file,
+	 * ID, name, status, Program Chair if any, Subprogram Chair if any, Reviewer
+	 * if any, review if any, and recommendation if any.
 	 */
 	@SuppressWarnings("unchecked")
 	@Test
 	public final void testDeserializePaperBeforeAfter() {
-		//first fetch
+		// first fetch
 		paperArrayList = null;
 		myUpdateSerFile = new UpdateSerFile(new Paper());
 		paperArrayList = (ArrayList<Paper>) myUpdateSerFile.deserialize();
 
-		//serialize
-//		assertNotNull(paperArrayList);
-		if(paperArrayList != null) {
+		// serialize
+		// assertNotNull(paperArrayList);
+		if (paperArrayList != null) {
 			myUpdateSerFile = new UpdateSerFile(new Paper());
 			myUpdateSerFile.makeSerialize(paperArrayList);
 		}
 
-		//second fetch
+		// second fetch
 		ArrayList<Paper> paperArrayListNew = null;
 		myUpdateSerFile = new UpdateSerFile(new Paper());
 		paperArrayListNew = (ArrayList<Paper>) myUpdateSerFile.deserialize();
 
-//		assertNotNull(paperArrayList);
-//		assertNotNull(paperArrayListNew);
-		if(paperArrayListNew != null && paperArrayList != null) {
-			for(int i  = 0; i < paperArrayList.size(); i++) {
-				assertEquals(paperArrayList.get(i).getAuthor().getUserName(), paperArrayListNew.get(i).getAuthor().getUserName());
-				assertEquals(paperArrayList.get(i).getConferenceID(), paperArrayListNew.get(i).getConferenceID());
+		// assertNotNull(paperArrayList);
+		// assertNotNull(paperArrayListNew);
+		if (paperArrayListNew != null && paperArrayList != null) {
+			for (int i = 0; i < paperArrayList.size(); i++) {
+				assertEquals(paperArrayList.get(i).getAuthor().getUserName(),
+						paperArrayListNew.get(i).getAuthor().getUserName());
+				assertEquals(paperArrayList.get(i).getConferenceID(), paperArrayListNew.get(i)
+						.getConferenceID());
 				assertEquals(paperArrayList.get(i).getFile(), paperArrayListNew.get(i).getFile());
 				assertEquals(paperArrayList.get(i).getID(), paperArrayListNew.get(i).getID());
 				assertEquals(paperArrayList.get(i).getName(), paperArrayListNew.get(i).getName());
-				assertEquals(paperArrayList.get(i).getStatusPaper(), paperArrayListNew.get(i).getStatusPaper());
+				assertEquals(paperArrayList.get(i).getStatusPaper(), paperArrayListNew.get(i)
+						.getStatusPaper());
 
-//				assertNotNull(paperArrayList.get(i).getProgramchair());
-				if(paperArrayList.get(i).getProgramchair() != null) {
-					assertEquals(paperArrayList.get(i).getProgramchair().getUserName(), paperArrayListNew.get(i).getProgramchair().getUserName());
+				// assertNotNull(paperArrayList.get(i).getProgramchair());
+				if (paperArrayList.get(i).getProgramchair() != null) {
+					assertEquals(paperArrayList.get(i).getProgramchair().getUserName(),
+							paperArrayListNew.get(i).getProgramchair().getUserName());
 				}
 
-//				assertNotNull(paperArrayList.get(i).getRecommendation());
-				if(paperArrayList.get(i).getRecommendation() != null) {
-					assertEquals(paperArrayList.get(i).getRecommendation(), paperArrayListNew.get(i).getRecommendation());
+				// assertNotNull(paperArrayList.get(i).getRecommendation());
+				if (paperArrayList.get(i).getRecommendation() != null) {
+					assertEquals(paperArrayList.get(i).getRecommendation(),
+							paperArrayListNew.get(i).getRecommendation());
 				}
 
-//				assertNotNull(paperArrayList.get(i).getReview());
-				if(paperArrayList.get(i).getReview() != null) {
+				// assertNotNull(paperArrayList.get(i).getReview());
+				if (paperArrayList.get(i).getReview() != null) {
 					assertEquals(paperArrayList.get(i).getReview(), paperArrayListNew.get(i).getReview());
 				}
 
-//				assertNotNull(paperArrayList.get(i).getReviewer());
-				if(paperArrayList.get(i).getReviewer() != null) {
-					assertEquals(paperArrayList.get(i).getReviewer().getUserName(), paperArrayListNew.get(i).getReviewer().getUserName());
+				// assertNotNull(paperArrayList.get(i).getReviewer());
+				if (paperArrayList.get(i).getReviewer() != null) {
+					assertEquals(paperArrayList.get(i).getReviewer().getUserName(),
+							paperArrayListNew.get(i).getReviewer().getUserName());
 				}
 
-//				assertNotNull(paperArrayList.get(i).getSubprogramChair());
-				if(paperArrayList.get(i).getSubprogramChair() != null) {
-					assertEquals(paperArrayList.get(i).getSubprogramChair().getUserName(), paperArrayListNew.get(i).getSubprogramChair().getUserName());
+				// assertNotNull(paperArrayList.get(i).getSubprogramChair());
+				if (paperArrayList.get(i).getSubprogramChair() != null) {
+					assertEquals(paperArrayList.get(i).getSubprogramChair().getUserName(),
+							paperArrayListNew.get(i).getSubprogramChair().getUserName());
 				}
 			}
 		}
 	}
 
 	/**
-	 * Test method for {@link conference_management.UpdateSerFile#deserialize()}.
-	 * 		Test to deserialize user.ser to see if the new written User ArrayList 
-	 * 		is the same as the User ArrayList that we deserialized before. In fact, this
-	 * 		test is to see if writing into user.ser is working properly. The test checks
-	 * 		for the equal User name, user name, and role on each of Users in 
-	 * 		both ArrayLists.
+	 * Test method for {@link conference_management.UpdateSerFile#deserialize()}
+	 * . Test to deserialize user.ser to see if the new written User ArrayList
+	 * is the same as the User ArrayList that we deserialized before. In fact,
+	 * this test is to see if writing into user.ser is working properly. The
+	 * test checks for the equal User name, user name, and role on each of Users
+	 * in both ArrayLists.
 	 */
 	@SuppressWarnings("unchecked")
 	@Test
 	public final void testDeserializeUserBeforeAfter() {
-		//first fetch
+		// first fetch
 		userArrayList = null;
 		myUpdateSerFile = new UpdateSerFile(new User());
 		userArrayList = (ArrayList<User>) myUpdateSerFile.deserialize();
 
-		//serialize
-//		assertNotNull(userArrayList);
-		if(userArrayList != null) {
+		// serialize
+		// assertNotNull(userArrayList);
+		if (userArrayList != null) {
 			myUpdateSerFile = new UpdateSerFile(new User());
 			myUpdateSerFile.makeSerialize(userArrayList);
 		}
 
-		//second fetch
+		// second fetch
 		ArrayList<User> userArrayListNew = null;
 		myUpdateSerFile = new UpdateSerFile(new User());
 		userArrayListNew = (ArrayList<User>) myUpdateSerFile.deserialize();
 
-//		assertNotNull(userArrayList);
-//		assertNotNull(userArrayListNew);
-		if(userArrayListNew != null && userArrayList != null) {
-			for(int i  = 0; i < userArrayList.size(); i++) {
+		// assertNotNull(userArrayList);
+		// assertNotNull(userArrayListNew);
+		if (userArrayListNew != null && userArrayList != null) {
+			for (int i = 0; i < userArrayList.size(); i++) {
 				assertEquals(userArrayList.get(i).getName(), userArrayListNew.get(i).getName());
 				assertEquals(userArrayList.get(i).getUserName(), userArrayListNew.get(i).getUserName());
 				assertEquals(userArrayList.get(i).getRole(), userArrayListNew.get(i).getRole());

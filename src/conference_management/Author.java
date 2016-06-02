@@ -44,7 +44,7 @@ public class Author extends User implements java.io.Serializable {
 	 * The prompt menu
 	 */
 	private final String[] mySubmitOption = { "Submit a Paper" };
-	
+
 	/**
 	 * The prompt menu
 	 */
@@ -53,8 +53,10 @@ public class Author extends User implements java.io.Serializable {
 
 	/**
 	 * This constructor will be used if a new Author object was needed. It also
-	 * 		calls the super class with the current logged in user name
-	 * @param theUser The current logged in user
+	 * calls the super class with the current logged in user name
+	 * 
+	 * @param theUser
+	 *            The current logged in user
 	 */
 	public Author(User theUser) {
 		super(theUser.getUserName());
@@ -64,9 +66,9 @@ public class Author extends User implements java.io.Serializable {
 	}
 
 	/**
-	 * This method takes care of prompting user and perform any action
-	 * 		that an Author is permitted to do. These actions are listed
-	 * 		in the option array instance variables. 
+	 * This method takes care of prompting user and perform any action that an
+	 * Author is permitted to do. These actions are listed in the option array
+	 * instance variables.
 	 */
 	public void promptAuthor() {
 		int menuIndex = 0;
@@ -91,13 +93,15 @@ public class Author extends User implements java.io.Serializable {
 				switch (selectedOption) {
 				case 1: // Modify the Paper
 					System.out.println("Eneter the new name: ");
-					myUser.getPaperList().get(tempPaper.getIndexPaper(tempPaper.getID())).setName(myUser.readConsole());
+					myUser.getPaperList().get(tempPaper.getIndexPaper(tempPaper.getID()))
+					.setName(myUser.readConsole());
 					myUser.myUpdateSerFilePaper.makeSerialize(myUser.myPaperArrayList);
 					System.out.println("Paper " + tempPaper.getName() + " was changed.");
 					promptAuthor();
 					break;
 				case 2: // Unsubmit the Paper
-					myUser.getPaperList().get(tempPaper.getIndexPaper(tempPaper.getID())).setStatusPaper(0);
+					myUser.getPaperList().get(tempPaper.getIndexPaper(tempPaper.getID()))
+					.setStatusPaper(0);
 					myUser.myUpdateSerFilePaper.makeSerialize(myUser.myPaperArrayList);
 					System.out.println("Paper " + tempPaper.getName() + " was unsubmitted.");
 					promptAuthor();
@@ -124,7 +128,8 @@ public class Author extends User implements java.io.Serializable {
 
 		if (!paperFound) {
 			Date now = new Date();
-			if (myUser.getConferenceList().get(myUser.getConferenceIndex(myUser.getSelectedConferenceID()))
+			if (myUser.getConferenceList().get(myUser.getConferenceIndex(myUser
+					.getSelectedConferenceID()))
 					.getDeadline().compareTo(now) > 0) {
 				// check to see if deadline has already passed
 				menuIndex = 0;
@@ -147,7 +152,8 @@ public class Author extends User implements java.io.Serializable {
 					newPaper.setStatusPaper(1);
 					System.out.println("Select the file for the new paper: ");
 					newPaper.setFile(
-							myUser.chooseFile(newPaper.getAuthor().getUserName() + "_" + newPaper.getConferenceID(),
+							myUser.chooseFile(newPaper.getAuthor().getUserName() + "_" 
+									+ newPaper.getConferenceID(),
 									myUser.PAPER_FILE_PATH));
 					myUser.myPaperArrayList.add(newPaper);
 					myUser.myUpdateSerFilePaper.makeSerialize(myUser.myPaperArrayList);
@@ -174,16 +180,18 @@ public class Author extends User implements java.io.Serializable {
 
 	/**
 	 * This method returns the current logged in user name
+	 * 
 	 * @return the logged in user name
 	 */
 	public String getUsername() {
 		return myUsername;
 	}
-	
+
 	/**
 	 * Sets the user name of the Author.
 	 * 
-	 * @param theAuthor String for the user name of the author
+	 * @param theAuthor
+	 *            String for the user name of the author
 	 */
 	public void setAuthor(final String theAuthorUsername) {
 		myUsername = theAuthorUsername;

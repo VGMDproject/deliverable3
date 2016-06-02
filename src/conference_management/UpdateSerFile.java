@@ -36,26 +36,28 @@ public class UpdateSerFile implements java.io.Serializable {
 	 * The Java auto generated serialization version number
 	 */
 	private static final long serialVersionUID = 766729644025146049L;
-	
+
 	/**
 	 * The file name to be updated or retrieved
 	 */
 	private String fileName = null;
-	
+
 	/**
 	 * The object that defines which type of data is received
 	 */
 	private Object myObject = null;
-	
+
 	/**
 	 * The return object of retrieved data
 	 */
 	private Object myReturnObject = null;
 
 	/**
-	 * This method is responsible to update the file name of the
-	 * 		external .ser files based upon the input object.
-	 * @param theObject The input object to be identified.
+	 * This method is responsible to update the file name of the external .ser
+	 * files based upon the input object.
+	 * 
+	 * @param theObject
+	 *            The input object to be identified.
 	 */
 	public UpdateSerFile(Object theObject) {
 		myObject = theObject;
@@ -69,35 +71,37 @@ public class UpdateSerFile implements java.io.Serializable {
 	}
 
 	/**
-	 * This method is responsible to update the .ser files. The
-	 * 		content of the external .ser file will be updated 
-	 * 		with the input object.
-	 * @param theObject The input object to be inserted into the
-	 * 		.ser file.
+	 * This method is responsible to update the .ser files. The content of the
+	 * external .ser file will be updated with the input object.
+	 * 
+	 * @param theObject
+	 *            The input object to be inserted into the .ser file.
 	 */
 	public void makeSerialize(Object theObject) {
 		ObjectOutputStream out;
-			FileOutputStream fileOut;
-			try {
-				fileOut = new FileOutputStream(fileName);
-				out = new ObjectOutputStream(fileOut);
-				out.writeObject(theObject);
-				out.close();
-				fileOut.close();
-			} catch (FileNotFoundException e) {
-				// Only for testing purposes
-				//System.out.println("Unable to find the file. (" + fileName + ")");
-			} catch (IOException e1) {
-				// Only for testing purposes
-				//System.out.println("No access or no data to read. (" + fileName + ")");
-			}
+		FileOutputStream fileOut;
+		try {
+			fileOut = new FileOutputStream(fileName);
+			out = new ObjectOutputStream(fileOut);
+			out.writeObject(theObject);
+			out.close();
+			fileOut.close();
+		} catch (FileNotFoundException e) {
+			// Only for testing purposes
+			// System.out.println("Unable to find the file. (" + fileName +
+			// ")");
+		} catch (IOException e1) {
+			// Only for testing purposes
+			// System.out.println("No access or no data to read. (" + fileName +
+			// ")");
+		}
 	}
 
 	/**
-	 * This method is responsible to extract data from the external 
-	 * 		.ser files.
-	 * @return The content of the .ser file as an object. This object
-	 * 		needs to be casted to the proper data type.
+	 * This method is responsible to extract data from the external .ser files.
+	 * 
+	 * @return The content of the .ser file as an object. This object needs to
+	 *         be casted to the proper data type.
 	 */
 	public Object deserialize() {
 		try {
@@ -108,10 +112,12 @@ public class UpdateSerFile implements java.io.Serializable {
 			fileIn.close();
 		} catch (ClassNotFoundException c) {
 			// Only for testing purposes
-			//System.out.println("Unable to read the file. (" + fileName + ")");
+			// System.out.println("Unable to read the file. (" + fileName +
+			// ")");
 		} catch (IOException i) {
 			// Only for testing purposes
-			//System.out.println("No access or no data to read. (" + fileName + ")");
+			// System.out.println("No access or no data to read. (" + fileName +
+			// ")");
 		}
 
 		return myReturnObject;

@@ -42,62 +42,47 @@ public class Conference implements java.io.Serializable {
 	private String myName;
 
 	/**
-	 * The status which may be assigned to any integer number. The default
-	 * 		value is 1 meaning the Conference is active. A Conference 
-	 * 		with myStatus equals to 0 is not active. Other states may
-	 * 		be assigned as needed.
+	 * The status which may be assigned to any integer number. The default value
+	 * is 1 meaning the Conference is active. A Conference with myStatus equals
+	 * to 0 is not active. Other states may be assigned as needed.
 	 */
 	private int myStatus;
 
 	/**
-	 * The deadline by which the papers should be submitted by the 
-	 * 		Author.
+	 * The deadline by which the papers should be submitted by the Author.
 	 */
 	private Date myDeadline;
 
 	/**
-	 * The Program Chair assigned to this Conference. This is the same
-	 * 		as the creator of the Conference.
+	 * The Program Chair assigned to this Conference. This is the same as the
+	 * creator of the Conference.
 	 */
 	private ProgramChair myPC;
 
 	/**
-	 * The default constructor just in case if an instance of the 
-	 * 		class was needed.
+	 * The default constructor just in case if an instance of the class was
+	 * needed.
 	 */
 	public Conference() {
 	}
 
 	/**
 	 * This constructor will be used if a new Conference object was needed.
-	 * @param theUser The current logged in user
-	 * @param theConferenceID The current selected Conference
+	 * 
+	 * @param theUser
+	 *            The current logged in user
+	 * @param theConferenceID
+	 *            The current selected Conference
 	 */
 	public Conference(int theConferenceID) {
 		myConferenceID = theConferenceID;
 	}
 
-//	/**
-//	 * This method will be used to get the index of a Conference
-//	 * 		in the ArrayList of all Conferences. The Conference 
-//	 * 		will be identified by its unique ID.
-//	 * @param theID The ID for the current selected Conference
-//	 * @@return The index of the Conference
-//	 */
-//	public int getIndexConference(int theID) {
-//		int index = -1;
-//		for (int i = 0; i < myUser.myConferenceArrayList.size(); i++) {
-//			if (myUser.myConferenceArrayList.get(i).getIDConference() == myConferenceID) {
-//				index = i;
-//				break;
-//			}
-//		}
-//		return index;
-//	}
-
 	/**
 	 * This method will be used to set the selected Conference
-	 * @param theConferenceID The ID for the current selected Conference
+	 * 
+	 * @param theConferenceID
+	 *            The ID for the current selected Conference
 	 */
 	public void setConferenceID(int theConferenceID) {
 		myConferenceID = theConferenceID;
@@ -105,25 +90,31 @@ public class Conference implements java.io.Serializable {
 
 	/**
 	 * This method will be used to set the name of the Conference
-	 * @param theName The name of the Conference
+	 * 
+	 * @param theName
+	 *            The name of the Conference
 	 */
 	public void setName(String theName) {
 		myName = theName;
 	}
 
 	/**
-	 * This method will be used to set the state of the Conference
-	 * 		Different possible states are explained in myStatus
-	 * @param theStatus The state of the Conference
+	 * This method will be used to set the state of the Conference Different
+	 * possible states are explained in myStatus
+	 * 
+	 * @param theStatus
+	 *            The state of the Conference
 	 */
 	public void setStatusConference(int theStatus) {
 		myStatus = theStatus;
 	}
 
 	/**
-	 * This method will be used to set the deadline of the Conference
-	 * 		No paper can be submitted after the deadline
-	 * @param theDeadline The due date
+	 * This method will be used to set the deadline of the Conference No paper
+	 * can be submitted after the deadline
+	 * 
+	 * @param theDeadline
+	 *            The due date
 	 */
 	public void setDeadline(Date theDeadline) {
 		myDeadline = theDeadline;
@@ -131,6 +122,7 @@ public class Conference implements java.io.Serializable {
 
 	/**
 	 * This method will be used to get the name of the Conference
+	 * 
 	 * @return myName The name
 	 */
 	public String getName() {
@@ -138,8 +130,9 @@ public class Conference implements java.io.Serializable {
 	}
 
 	/**
-	 * This method will be used to get the deadline of the Conference
-	 * 		No paper can be submitted after the deadline
+	 * This method will be used to get the deadline of the Conference No paper
+	 * can be submitted after the deadline
+	 * 
 	 * @return myDeadline The due date
 	 */
 	public Date getDeadline() {
@@ -147,8 +140,9 @@ public class Conference implements java.io.Serializable {
 	}
 
 	/**
-	 * This method will be used to get the state of the Conference
-	 * 		Different possible states are explained in myStatus
+	 * This method will be used to get the state of the Conference Different
+	 * possible states are explained in myStatus
+	 * 
 	 * @return myStatus The state of the Conference
 	 */
 	public int getStatusConference() {
@@ -156,28 +150,30 @@ public class Conference implements java.io.Serializable {
 	}
 
 	/**
-	 * This method will be used to get the ID of the Conference
-	 * 		The Conference will be identified by this ID
+	 * This method will be used to get the ID of the Conference The Conference
+	 * will be identified by this ID
+	 * 
 	 * @return myConferenceID The unique ID of the Conference
 	 */
 	public int getIDConference() {
 		return myConferenceID;
 	}
-	
+
 	/**
-	 * This method will be used to get the Program Chair assigned
-	 * 		to this Conference. The Program Chair of a Conference
-	 * 		is the User who creates the Conference.
+	 * This method will be used to get the Program Chair assigned to this
+	 * Conference. The Program Chair of a Conference is the User who creates the
+	 * Conference.
+	 * 
 	 * @return ProgramChair The Program Chair
 	 */
 	public ProgramChair getProgramChair() {
 		return myPC;
 	}
-	
+
 	/**
-	 * This method will be used to set the Program Chair assigned
-	 * 		to this Conference. The Program Chair of a Conference
-	 * 		is the User who creates the Conference.
+	 * This method will be used to set the Program Chair assigned to this
+	 * Conference. The Program Chair of a Conference is the User who creates the
+	 * Conference.
 	 */
 	public void setProgramChair(ProgramChair thePC) {
 		myPC = thePC;

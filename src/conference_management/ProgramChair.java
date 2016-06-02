@@ -36,22 +36,22 @@ public class ProgramChair extends User implements java.io.Serializable {
 	 * The Java auto generated serialization version number
 	 */
 	private static final long serialVersionUID = -2838033436148976263L;
-	
+
 	/**
 	 * The current logged in user.
 	 */
 	private User myUser;
-	
+
 	/**
 	 * The current selected Conference
 	 */
 	private Conference myConference;
-	
+
 	/**
 	 * The current selected Conference Index
 	 */
 	private int conferenceIndex;
-	
+
 	/**
 	 * The prompt menu
 	 */
@@ -68,18 +68,21 @@ public class ProgramChair extends User implements java.io.Serializable {
 	 */
 	private final String[] myConferenceOptions3 = { "Assign Paper to Subprogram Chair", "View Review",
 			"View Recommendation", "Accept/Decline Paper" };
-	
+
 	/**
 	 * Default constructor for testing purposes
 	 */
 	public ProgramChair() {
-		
+
 	}
 
 	/**
 	 * This constructor will be used if a new Program Chair object was needed.
-	 * @param theUser The current logged in user
-	 * @param theConferenceID The current selected Conference
+	 * 
+	 * @param theUser
+	 *            The current logged in user
+	 * @param theConferenceID
+	 *            The current selected Conference
 	 */
 	public ProgramChair(User theUser, int theConferenceID) {
 		super(theUser.getUserName());
@@ -101,15 +104,17 @@ public class ProgramChair extends User implements java.io.Serializable {
 	}
 
 	/**
-	 * This method takes care of prompting user and perform any action
-	 * 		that a Program Chair is permitted to do. These actions are listed
-	 * 		in the option array instance variables. 
+	 * This method takes care of prompting user and perform any action that a
+	 * Program Chair is permitted to do. These actions are listed in the option
+	 * array instance variables.
 	 */
 	public void promptPC() {
 		System.out.println("\nYou are in Conference: \"" + myConference.getName() + "\"");
 		DateFormat deadlineFormat = new SimpleDateFormat("MM/dd/yyyy 'at' hh:mm:ss");
-		System.out.println("Conference deadline: " + deadlineFormat.format(myConference.getDeadline()));
-		System.out.println("Conference status: " + (myConference.getStatusConference() == 1 ? "Active" : "Not Active"));
+		System.out.println("Conference deadline: " + deadlineFormat
+				.format(myConference.getDeadline()));
+		System.out.println("Conference status: " + (myConference.getStatusConference() 
+				== 1 ? "Active" : "Not Active"));
 		System.out.println(myUser.mySelectPrompt);
 		int optionIndex = 0;
 		for (String tempString : myConferenceOptions2) {
@@ -128,20 +133,21 @@ public class ProgramChair extends User implements java.io.Serializable {
 			boolean paperFound = false;
 			if (myUser.myPaperArrayList.size() > 0) {
 				for (Paper localPaper : myUser.myPaperArrayList) {
-					if(localPaper.getConferenceID() == myConference.getIDConference()) {
+					if (localPaper.getConferenceID() == myConference.getIDConference()) {
 						paperFound = true;
 						break;
 					}
 				}
 			}
-			
+
 			if (paperFound) {
 				System.out.println("\nList of all papers in conference \"" + myConference.getName()
 				+ "\".\nSelect a paper to go to Paper Management: ");
 				for (Paper localPaper : myUser.myPaperArrayList) {
 					if (localPaper.getConferenceID() == myConference.getIDConference()) {
 						System.out.println(
-								++paperCounter + ") " + localPaper.getName() + " by " + localPaper.getUsername());
+								++paperCounter + ") " + localPaper.getName() + " by " 
+										+ localPaper.getUsername());
 					}
 				}
 
@@ -163,28 +169,14 @@ public class ProgramChair extends User implements java.io.Serializable {
 						}
 					}
 
-					Paper selectedPaper = myUser.myPaperArrayList.get(myUser.getPaperIndex(selectedPaperID));
+					Paper selectedPaper = myUser.myPaperArrayList.get(myUser
+							.getPaperIndex(selectedPaperID));
 					if (!selectedPaper.getAuthor().getUserName().equals(myUser.getUserName())) {
 						promptPaperManagement(selectedPaperID);
-						
-						
-						
-						
-						
-
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
 					} else {
 						System.out.println(
-								"As a Program Chair, you cannot modify your own paper. Please log in as an Author.");
+								"As a Program Chair, you cannot modify your own paper. "
+										+ "Please log in as an Author.");
 						promptPC();
 					}
 				} else {
@@ -244,21 +236,21 @@ public class ProgramChair extends User implements java.io.Serializable {
 			break;
 		}
 	}
-	
+
 	public void promptPaperManagement(int theSelectedPaperID) {
 		Paper selectedPaper = myUser.myPaperArrayList.get(myUser.getPaperIndex(theSelectedPaperID));
-		
+
 		System.out.println("\nYou are in Paper: " + selectedPaper.getName());
 		System.out.println("Paper Author: " + selectedPaper.getUsername());
-		if (selectedPaper.getSubprogramChair() != null
-				&& !selectedPaper.getSubprogramChair().getSPCUser().equals("")) {
-			System.out.println(
-					"Paper Subprogram Chair: " + selectedPaper.getSubprogramChair().getSPCUser());
+		if (selectedPaper.getSubprogramChair() != null && !selectedPaper.getSubprogramChair()
+				.getSPCUser().equals("")) {
+			System.out.println("Paper Subprogram Chair: " + selectedPaper.getSubprogramChair()
+			.getSPCUser());
 		} else {
 			System.out.println("Paper Subprogram Chair has not been assigned yet.");
 		}
-		System.out.println(
-				"Paper Status: " + (selectedPaper.getStatusPaper() == 1 ? "Accepted" : "Declined"));
+		System.out.println("Paper Status: " + (selectedPaper.getStatusPaper() 
+				== 1 ? "Accepted" : "Declined"));
 
 		System.out.println(myUser.mySelectPrompt);
 		int optionIndex = 0;
@@ -279,14 +271,14 @@ public class ProgramChair extends User implements java.io.Serializable {
 			for (User localUser : myUser.getUserList()) {
 				System.out.println(++optionIndex + ") " + localUser.getUserName());
 			}
-			
+
 			for (String tempString : myUser.myBackOutOption) {
 				System.out.println(++optionIndex + ") " + tempString);
 			}
 
 			int selectedUserIndex = Integer.valueOf(myUser.readConsole()) - 1;
 
-			if(selectedUserIndex < myUser.getUserList().size()) {
+			if (selectedUserIndex < myUser.getUserList().size()) {
 				// check to see if author is the same as the SPC
 				if (selectedPaper.getAuthor().getUserName()
 						.equals(myUser.myUserArrayList.get(selectedUserIndex).getUserName())) {
@@ -306,8 +298,8 @@ public class ProgramChair extends User implements java.io.Serializable {
 					// check to see if the maximum number of SPC has
 					// been assigned to the selected user
 					if (totalSPCForUser > myUser.MAX_SPC) {
-						System.out.println("This user has already been assigned the maximum ("
-								+ myUser.MAX_SPC + ") possible papers.");
+						System.out.println("This user has already been assigned the maximum (" + myUser.MAX_SPC
+								+ ") possible papers.");
 					} else {
 						SubprogramChair localSPC = new SubprogramChair(myUser,
 								myUser.myUserArrayList.get(selectedUserIndex).getUserName(),
@@ -317,19 +309,19 @@ public class ProgramChair extends User implements java.io.Serializable {
 						myUser.myUserArrayList.get(myUser.getUserIndex(localSPC.getSPCUser())).setSPC(true);
 						myUser.myUpdateSerFilePaper.makeSerialize(myUser.myPaperArrayList);
 						myUser.myUpdateSerFileUser.makeSerialize(myUser.myUserArrayList);
-						System.out.println("The user \"" + myUser.myUserArrayList.get(selectedUserIndex).getUserName()
-								+ "\" has been assigned to the paper \"" + selectedPaper.getName()
-								+ "\" by \"" + selectedPaper.getAuthor().getUsername()
-								+ "\" as the Subprogram Chair.");
-					} 
+						System.out.println("The user \"" + myUser.myUserArrayList.get(selectedUserIndex)
+						.getUserName()
+						+ "\" has been assigned to the paper \"" + selectedPaper.getName() + "\" by \""
+						+ selectedPaper.getAuthor().getUsername() + "\" as the Subprogram Chair.");
+					}
 				}
 				promptPaperManagement(theSelectedPaperID);
 			} else {
 				switch (selectedUserIndex + 1 - myUser.getUserList().size()) {
-				case 1:	// go back
+				case 1: // go back
 					promptPaperManagement(theSelectedPaperID);
 					break;
-				case 2:	// log out
+				case 2: // log out
 					myUser.logout();
 					break;
 				}
@@ -340,7 +332,7 @@ public class ProgramChair extends User implements java.io.Serializable {
 				System.out.println("\nReview for the paper \"" + selectedPaper.getName() + "\":");
 				File localFile = new File(myUser.REVIEW_FILE_PATH + selectedPaper.getReview());
 				String fileContent = myUser.getContent(localFile);
-				if(fileContent != null && !fileContent.equals("")) {
+				if (fileContent != null && !fileContent.equals("")) {
 					System.out.println(fileContent);
 				} else {
 					System.out.println("File name: " + myUser.REVIEW_FILE_PATH + selectedPaper.getReview());
@@ -352,14 +344,16 @@ public class ProgramChair extends User implements java.io.Serializable {
 			break;
 		case 3: // View Recommendation
 			if (selectedPaper.getRecommendation() != null && !selectedPaper.getRecommendation().equals("")) {
-//				System.out.println("You cannot add recommendation for your own paper.");
+				// System.out.println("You cannot add recommendation for your
+				// own paper.");
 				System.out.println("\nRecommendation for the paper \"" + selectedPaper.getName() + "\":");
 				File localFile = new File(myUser.RECOMMENDATION_FILE_PATH + selectedPaper.getRecommendation());
 				String fileContent = myUser.getContent(localFile);
-				if(fileContent != null && !fileContent.equals("")) {
+				if (fileContent != null && !fileContent.equals("")) {
 					System.out.println(fileContent);
 				} else {
-					System.out.println("File name: " + myUser.RECOMMENDATION_FILE_PATH + selectedPaper.getRecommendation());
+					System.out.println(
+							"File name: " + myUser.RECOMMENDATION_FILE_PATH + selectedPaper.getRecommendation());
 				}
 			} else {
 				System.out.println("No recommendation has been submitted yet.");
@@ -372,39 +366,26 @@ public class ProgramChair extends User implements java.io.Serializable {
 			} else {
 				System.out.println("\nChoose the status (0:Decline, 1: Accept) of the paper:");
 				int selectedStatus = Integer.valueOf(myUser.readConsole());
-				myUser.myPaperArrayList.get(myUser.getPaperIndex(selectedPaper.getID()))
-				.setStatusPaper(selectedStatus);
+				myUser.myPaperArrayList.get(myUser.getPaperIndex(selectedPaper.getID())).setStatusPaper(selectedStatus);
 				myUser.myUpdateSerFilePaper.makeSerialize(myUser.myPaperArrayList);
 				System.out.println("Paper " + selectedPaper.getName() + " has been "
 						+ (selectedStatus == 0 ? "declined" : "accepted") + ".");
 			}
 			promptPaperManagement(theSelectedPaperID);
 			break;
-//		case 5:	// Making a new Conference
-//			new Conference();
-//			break;
-		case 5:	// go back
+		case 5: // go back
 			promptPC();
 			break;
-		case 6:	// log out
+		case 6: // log out
 			myUser.logout();
 			break;
 		}
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	/**
-	 * This method takes care of prompting user if a new Conference 
-	 * 		was needed.
+	 * This method takes care of prompting user if a new Conference was needed.
 	 */
-	public void promptNewConference(){
+	public void promptNewConference() {
 		System.out.println(mySelectPrompt);
 		if (myUser.myConferenceArrayList.size() == 0) {
 			int optionIndex = 0;
@@ -429,9 +410,9 @@ public class ProgramChair extends User implements java.io.Serializable {
 	}
 
 	/**
-	 * This method creates a new Conference 
+	 * This method creates a new Conference
 	 */
-	private void createNewConference()  {
+	private void createNewConference() {
 		System.out.println("Choose a name for the new conference: ");
 		String selectedName = myUser.readConsole();
 		System.out.println("Choose a deadline (MM/DD/YYYY) for the new conference: ");

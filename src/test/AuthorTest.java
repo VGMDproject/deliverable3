@@ -15,10 +15,10 @@ import conference_management.User;
  * @version May 29, 2016.
  */
 public class AuthorTest {
-	
-	/**Field to be able to access the User class for testing.*/
+
+	/** Field to be able to access the User class for testing. */
 	private User myUser;
-	/**Object of the Author class.*/
+	/** Object of the Author class. */
 	private Author myAuthor;
 
 	/**
@@ -40,34 +40,33 @@ public class AuthorTest {
 		String testName = "Gabriela";
 		myAuthor.setAuthor(testName);
 		assertEquals("Setter for Author failed!", testName, myAuthor.getUsername());
-		
+
 		testName = "Daniel";
 		myAuthor.setAuthor(testName);
 		assertEquals("Setter for Author failed!", testName, myAuthor.getUsername());
-		
+
 		testName = "Moe";
 		myAuthor.setAuthor(testName);
 		assertEquals("Setter for Author failed!", testName, myAuthor.getUsername());
-		
+
 		testName = "Vu";
 		myAuthor.setAuthor(testName);
 		assertEquals("Setter for Author failed!", testName, myAuthor.getUsername());
-		
+
 		testName = "Josh";
 		myAuthor.setAuthor(testName);
 		assertEquals("Setter for Author failed!", testName, myAuthor.getUsername());
-		
+
 		testName = "Bob";
 		myAuthor.setAuthor(testName);
 		assertEquals("Setter for Author failed!", testName, myAuthor.getUsername());
-		
+
 		testName = "Luke";
 		myAuthor.setAuthor(testName);
 		assertEquals("Setter for Author failed!", testName, myAuthor.getUsername());
-		
+
 		testName = "Dave";
 		myAuthor.setAuthor(testName);
 		assertEquals("Setter for Author failed!", testName, myAuthor.getUsername());
 	}
-
 }

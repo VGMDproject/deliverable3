@@ -22,7 +22,7 @@ import java.awt.EventQueue;
  * 		fact, the GUI can call the prompt method in each class and
  * 		the prompt methods take care of calling other method and 
  * 		classes as needed. Adding GUI to the program, the console 
- * 		may still be useful for testing purposes. 
+ * 		may still be useful for testing purposes.
  * </pre>
  * 
  * @author Moe Abdipour

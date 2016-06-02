@@ -9,11 +9,7 @@
 package test;
 
 import static org.junit.Assert.*;
-
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import conference_management.User;
 
@@ -30,86 +26,65 @@ import conference_management.User;
  * @since May 26, 2016
  */
 public class UserTest {
-	
+
 	private User myUser;
 
 	/**
 	 * @throws java.lang.Exception
 	 */
-	@BeforeClass
-	public static void setUpBeforeClass() {
-	}
-
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@AfterClass
-	public static void tearDownAfterClass() {
-	}
-
-	/**
-	 * @throws java.lang.Exception
-	 */
 	@Before
-	public void setUp()  {
+	public void setUp() {
 		myUser = new User("");
 	}
 
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@After
-	public void tearDown()  {
-	}
-	
 	/**
 	 * Test method for {@link conference_management.User#User()}.
 	 */
 	@Test
 	public final void testUser() {
 		try {
-		new User();
-	} catch (Exception e) {
-		fail("Unable to make and instance of " + this.getClass().getSimpleName());
+			new User();
+		} catch (Exception e) {
+			fail("Unable to make and instance of " + this.getClass().getSimpleName());
+		}
 	}
-	}
-	
+
 	/**
 	 * Test method for {@link conference_management.User#User()}.
 	 */
 	@Test
 	public final void testUserPassingNull() {
 		try {
-		new User(null);
-	} catch (Exception e) {
-		fail("Unable to make and instance of " + this.getClass().getSimpleName());
+			new User(null);
+		} catch (Exception e) {
+			fail("Unable to make and instance of " + this.getClass().getSimpleName());
+		}
 	}
-	}
-	
+
 	/**
 	 * Test method for {@link conference_management.User#User()}.
 	 */
 	@Test
 	public final void testUserPassingEmptyString() {
 		try {
-		new User("");
-	} catch (Exception e) {
-		fail("Unable to make and instance of " + this.getClass().getSimpleName());
+			new User("");
+		} catch (Exception e) {
+			fail("Unable to make and instance of " + this.getClass().getSimpleName());
+		}
 	}
-	}
-	
+
 	/**
 	 * Test method for {@link conference_management.User#User()}.
 	 */
 	@Test
 	public final void testUserPassingString() {
 		try {
-		new User("1");
-	} catch (Exception e) {
-		fail("Unable to make and instance of " + this.getClass().getSimpleName());
+			new User("1");
+		} catch (Exception e) {
+			fail("Unable to make and instance of " + this.getClass().getSimpleName());
+		}
 	}
-	}
-	
+
 	/**
 	 * Test method for {@link conference_management.User#init()}.
 	 */
@@ -136,51 +111,47 @@ public class UserTest {
 
 	/**
 	 * Test method for {@link conference_management.User#getPaperIndex(int)}.
-	 * 		This test goes over all elements in Paper ArrayList and sends their
-	 * 		ID's to the getPaperIndex() and compares the result to the actual 
-	 * 		index. 
+	 * This test goes over all elements in Paper ArrayList and sends their ID's
+	 * to the getPaperIndex() and compares the result to the actual index.
 	 */
 	@Test
 	public final void testGetPaperIndex() {
-//		assertNotNull(myUser.myPaperArrayList);
-		if(myUser.myPaperArrayList != null 
-				&& myUser.myPaperArrayList.size() > 0) {
-			for(int i = 0; i < myUser.myPaperArrayList.size(); i++) {
-					assertEquals(myUser.getPaperIndex(myUser.myPaperArrayList.get(i).getID()), i);
+		// assertNotNull(myUser.myPaperArrayList);
+		if (myUser.myPaperArrayList != null && myUser.myPaperArrayList.size() > 0) {
+			for (int i = 0; i < myUser.myPaperArrayList.size(); i++) {
+				assertEquals(myUser.getPaperIndex(myUser.myPaperArrayList.get(i).getID()), i);
 			}
 		}
 	}
 
 	/**
 	 * Test method for {@link conference_management.User#getUserIndex(String)}.
-	 * 		This test goes over all elements in User ArrayList and sends their
-	 * 		user names to the getPaperIndex() and compares the result to the actual 
-	 * 		index. 
+	 * This test goes over all elements in User ArrayList and sends their user
+	 * names to the getPaperIndex() and compares the result to the actual index.
 	 */
 	@Test
 	public final void testGetUserIndex() {
-//		assertNotNull(myUser.myUserArrayList);
-		if(myUser.myUserArrayList != null 
-				&& myUser.myUserArrayList.size() > 0) {
-			for(int i = 0; i < myUser.myUserArrayList.size(); i++) {
-					assertEquals(myUser.getUserIndex(myUser.myUserArrayList.get(i).getUserName()), i);
+		// assertNotNull(myUser.myUserArrayList);
+		if (myUser.myUserArrayList != null && myUser.myUserArrayList.size() > 0) {
+			for (int i = 0; i < myUser.myUserArrayList.size(); i++) {
+				assertEquals(myUser.getUserIndex(myUser.myUserArrayList.get(i).getUserName()), i);
 			}
 		}
 	}
 
 	/**
-	 * Test method for {@link conference_management.User#getConferenceIndex(int)}.
-	 * 		This test goes over all elements in Conference ArrayList and sends their
-	 * 		ID's to the getConferenceIndex() and compares the result to the actual 
-	 * 		index. 
+	 * Test method for
+	 * {@link conference_management.User#getConferenceIndex(int)}. This test
+	 * goes over all elements in Conference ArrayList and sends their ID's to
+	 * the getConferenceIndex() and compares the result to the actual index.
 	 */
 	@Test
 	public final void testGetConferenceIndex() {
-//		assertNotNull(myUser.myConferenceArrayList);
-		if(myUser.myConferenceArrayList != null 
-				&& myUser.myConferenceArrayList.size() > 0) {
-			for(int i = 0; i < myUser.myConferenceArrayList.size(); i++) {
-					assertEquals(myUser.getConferenceIndex(myUser.myConferenceArrayList.get(i).getIDConference()), i);
+		// assertNotNull(myUser.myConferenceArrayList);
+		if (myUser.myConferenceArrayList != null && myUser.myConferenceArrayList.size() > 0) {
+			for (int i = 0; i < myUser.myConferenceArrayList.size(); i++) {
+				assertEquals(myUser.getConferenceIndex(myUser.myConferenceArrayList.get(i)
+						.getIDConference()), i);
 			}
 		}
 	}
@@ -240,7 +211,8 @@ public class UserTest {
 	}
 
 	/**
-	 * Test method for {@link conference_management.User#setRole(java.lang.String)}.
+	 * Test method for
+	 * {@link conference_management.User#setRole(java.lang.String)}.
 	 */
 	@Test
 	public final void testSetRole() {
@@ -248,9 +220,10 @@ public class UserTest {
 		myUser.setRole(newRole);
 		assertEquals(newRole, myUser.getRole());
 	}
-	
+
 	/**
-	 * Test method for {@link conference_management.User#setName(java.lang.String)}.
+	 * Test method for
+	 * {@link conference_management.User#setName(java.lang.String)}.
 	 */
 	@Test
 	public final void testSetName() {
@@ -260,7 +233,8 @@ public class UserTest {
 	}
 
 	/**
-	 * Test method for {@link conference_management.User#setUserName(java.lang.String)}.
+	 * Test method for
+	 * {@link conference_management.User#setUserName(java.lang.String)}.
 	 */
 	@Test
 	public final void testSetUserName() {
@@ -360,7 +334,8 @@ public class UserTest {
 	}
 
 	/**
-	 * Test method for {@link conference_management.User#getSelectedConferenceID()}.
+	 * Test method for
+	 * {@link conference_management.User#getSelectedConferenceID()}.
 	 */
 	@Test
 	public final void testGetSelectedConferenceID() {
@@ -369,7 +344,8 @@ public class UserTest {
 	}
 
 	/**
-	 * Test method for {@link conference_management.User#setSelectedConferenceID(int)}.
+	 * Test method for
+	 * {@link conference_management.User#setSelectedConferenceID(int)}.
 	 */
 	@Test
 	public final void testSetSelectedConferenceID() {

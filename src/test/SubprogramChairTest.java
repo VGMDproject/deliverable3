@@ -15,10 +15,10 @@ import conference_management.User;
  * @version May 27, 2016
  */
 public class SubprogramChairTest {
-	
-	/**SubprogramChair object used for testing.*/
+
+	/** SubprogramChair object used for testing. */
 	private SubprogramChair mySPC;
-	/**User object used for testing.*/
+	/** User object used for testing. */
 	private User myUser;
 
 	/**
@@ -40,17 +40,17 @@ public class SubprogramChairTest {
 		String testName = "Gabriela";
 		mySPC.setSPCUser(myUser);
 		assertEquals("Setter for SubprogramChair failed!", testName, mySPC.getSPCUser());
-		
+
 		testName = "Daniel";
 		myUser.setUserName(testName);
 		mySPC.setSPCUser(myUser);
 		assertEquals("Setter for SubprogramChair failed!", testName, mySPC.getSPCUser());
-		
+
 		testName = "Josh";
 		myUser.setUserName(testName);
 		mySPC.setSPCUser(myUser);
 		assertEquals("Setter for SubprogramChair failed!", testName, mySPC.getSPCUser());
-		
+
 		testName = "Moe";
 		myUser.setUserName(testName);
 		mySPC.setSPCUser(myUser);
@@ -60,22 +60,20 @@ public class SubprogramChairTest {
 		myUser.setUserName(testName);
 		mySPC.setSPCUser(myUser);
 		assertEquals("Setter for SubprogramChair failed!", testName, mySPC.getSPCUser());
-		
+
 		testName = "Bob";
 		myUser.setUserName(testName);
 		mySPC.setSPCUser(myUser);
 		assertEquals("Setter for SubprogramChair failed!", testName, mySPC.getSPCUser());
-		
+
 		testName = "Luke";
 		myUser.setUserName(testName);
 		mySPC.setSPCUser(myUser);
 		assertEquals("Setter for SubprogramChair failed!", testName, mySPC.getSPCUser());
-		
+
 		testName = "Rob";
 		myUser.setUserName(testName);
 		mySPC.setSPCUser(myUser);
 		assertEquals("Setter for SubprogramChair failed!", testName, mySPC.getSPCUser());
-		
 	}
-
 }

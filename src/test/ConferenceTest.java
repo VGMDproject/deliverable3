@@ -12,7 +12,6 @@ import org.junit.Test;
 import conference_management.Conference;
 import conference_management.User;
 
-
 public class ConferenceTest {
 	int confID = 1;
 	String testName = "name";
@@ -21,33 +20,31 @@ public class ConferenceTest {
 	Conference conf;
 	Date testDeadline;
 	ArrayList<Conference> confList;
+
 	@Before
-	public void setup(){
-	
+	public void setup() {
 		User testUser = new User();
 		testUser.init();
 		conf = new Conference(confID);
 		testUser.myConferenceArrayList.add(conf);
-//		System.out.println(testUser.myConferenceArrayList);
 		testDeadline = new Date();
 		confList = new ArrayList<Conference>();
-
 	}
 
 	@Test
 	public void testConstructor_withNonull() {
-//		System.out.println(conf.getIDConference());
 		assertNotNull(conf);
 	}
+
 	@Test
-	public void testtestConstructor_withconfID(){
+	public void testtestConstructor_withconfID() {
 		assertEquals(conf.getIDConference(), 1);
 	}
 
 	@Test
 	public void testConferenceUserInt_withEmptyConference() {
 	}
-	//Bugging, it always return 0
+
 	@Test
 	public void testConferenceUserInt_withAddedConference() {
 		User testUser2 = new User();
@@ -58,17 +55,14 @@ public class ConferenceTest {
 		Conference conf3 = new Conference(6);
 		testUser2.myConferenceArrayList.add(conf2);
 		testUser2.myConferenceArrayList.add(conf3);
-//		System.out.println("list size is "+ testUser2.myConferenceArrayList.size());
-//		System.out.println("conference id is "+ testUser2.myConferenceArrayList.get(1).getIDConference());
-//		System.out.println(conf2.getIndexConference(6));
-//		assertEquals(index, conf2.getIndexConference(6));
 	}
 
 	@Test
 	public void testsetConferenceID() {
 		conf.setConferenceID(confID);
-		assertEquals(confID,conf.getIDConference());
+		assertEquals(confID, conf.getIDConference());
 	}
+
 	@Test
 	public void testsetConferenceID_notNUll() {
 		conf.setConferenceID(confID);
@@ -78,14 +72,13 @@ public class ConferenceTest {
 	@Test
 	public void testsetName() {
 		conf.setName(testName);
-		assertEquals(testName,conf.getName());
+		assertEquals(testName, conf.getName());
 	}
 
 	@Test
 	public void testSetName_withNull() {
 		conf.setName(null);
 		assertNull(conf.getName());
-		
 	}
 
 	@Test
@@ -93,11 +86,13 @@ public class ConferenceTest {
 		conf.setStatusConference(testStatus);
 		assertNotNull(conf.getStatusConference());
 	}
+
 	@Test
 	public void testSetStatusConference() {
 		conf.setStatusConference(testStatus);
-		assertEquals(testStatus,conf.getStatusConference());
+		assertEquals(testStatus, conf.getStatusConference());
 	}
+
 	@Test
 	public void testSetDeadline_withNUll() {
 		conf.setDeadline(null);
@@ -121,7 +116,6 @@ public class ConferenceTest {
 	public void testGetDeadline() {
 		conf.setDeadline(testDeadline);
 		assertTrue(conf.getDeadline().equals(testDeadline));
-		
 	}
 
 	@Test
@@ -137,5 +131,4 @@ public class ConferenceTest {
 		conf.setConferenceID(newID);
 		assertEquals(newID, conf.getIDConference());
 	}
-
 }

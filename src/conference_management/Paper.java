@@ -43,9 +43,8 @@ public class Paper implements java.io.Serializable {
 	private int myPaperID;
 
 	/**
-	 * The Program Chair assigned to this paper. The Program 
-	 * 		Chair is assigned to paper instead of the Conference
-	 * 		to have more flexibility in program. 
+	 * The Program Chair assigned to this paper. The Program Chair is assigned
+	 * to paper instead of the Conference to have more flexibility in program.
 	 */
 	private ProgramChair myProgramChair;
 
@@ -55,30 +54,29 @@ public class Paper implements java.io.Serializable {
 	private SubprogramChair mySubprogramChair;
 
 	/**
-	 * The Reviewer assigned to this paper. 
+	 * The Reviewer assigned to this paper.
 	 */
 	private Reviewer myReviewer;
 
 	/**
-	 * The Author of this paper. 
+	 * The Author of this paper.
 	 */
 	private Author myAuthor;
 
 	/**
-	 * The name of this paper. Same as the title of the Paper. 
+	 * The name of this paper. Same as the title of the Paper.
 	 */
 	private String myName;
 
 	/**
-	 * The ID for the Conference that this paper belongs to. 
+	 * The ID for the Conference that this paper belongs to.
 	 */
 	private int myConferenceID;
 
 	/**
-	 * The status which may be assigned to any integer number. The default
-	 * 		value is 1 meaning the Paper is active. A Paper	with myStatus
-	 * 		equals to 0 is not active. Other states may	be assigned as 
-	 * 		needed.
+	 * The status which may be assigned to any integer number. The default value
+	 * is 1 meaning the Paper is active. A Paper with myStatus equals to 0 is
+	 * not active. Other states may be assigned as needed.
 	 */
 	private int myStatus;
 
@@ -88,8 +86,8 @@ public class Paper implements java.io.Serializable {
 	private String myReview;
 
 	/**
-	 * The name of the recommendation file. The file is located in local 
-	 * 		storage.
+	 * The name of the recommendation file. The file is located in local
+	 * storage.
 	 */
 	private String myRecommendation;
 
@@ -102,25 +100,29 @@ public class Paper implements java.io.Serializable {
 	 * The current logged in user.
 	 */
 	private User myUser;
-	
+
 	/**
-	 * The current logged in user name. This will be the same user name
-	 * 		as the Author's user name.
+	 * The current logged in user name. This will be the same user name as the
+	 * Author's user name.
 	 */
 	private String myUsername;
 
 	/**
-	 * The default constructor just in case if an instance of the 
-	 * 		class was needed.
+	 * The default constructor just in case if an instance of the class was
+	 * needed.
 	 */
 	public Paper() {
 	}
 
 	/**
 	 * This constructor will be used if a new Paper object was needed.
-	 * @param theUser The current logged in user
-	 * @param thePaperID The ID for the new Paper object
-	 * @param theConferenceID The current selected Conference
+	 * 
+	 * @param theUser
+	 *            The current logged in user
+	 * @param thePaperID
+	 *            The ID for the new Paper object
+	 * @param theConferenceID
+	 *            The current selected Conference
 	 */
 	public Paper(User theUser, int thePaperID, int theConferenceID) {
 		myUser = theUser;
@@ -131,6 +133,7 @@ public class Paper implements java.io.Serializable {
 
 	/**
 	 * This method returns the current logged in user name
+	 * 
 	 * @return the logged in user name
 	 */
 	public String getUsername() {
@@ -138,10 +141,11 @@ public class Paper implements java.io.Serializable {
 	}
 
 	/**
-	 * This method will be used to get the index of a Paper
-	 * 		in the ArrayList of all Papers. The Paper 
-	 * 		will be identified by its unique ID.
-	 * @param theID The ID for the Paper
+	 * This method will be used to get the index of a Paper in the ArrayList of
+	 * all Papers. The Paper will be identified by its unique ID.
+	 * 
+	 * @param theID
+	 *            The ID for the Paper
 	 * @@return The index of the Paper in the ArrayList of all Papers
 	 */
 	public int getIndexPaper(int theID) {
@@ -156,8 +160,8 @@ public class Paper implements java.io.Serializable {
 	}
 
 	/**
-	 * This method returns the Program Chair assigned to this
-	 * 		Paper.
+	 * This method returns the Program Chair assigned to this Paper.
+	 * 
 	 * @return the assigned Program Chair
 	 */
 	public ProgramChair getProgramchair() {
@@ -165,8 +169,8 @@ public class Paper implements java.io.Serializable {
 	}
 
 	/**
-	 * This method returns the Subprogram Chair assigned to this
-	 * 		Paper.
+	 * This method returns the Subprogram Chair assigned to this Paper.
+	 * 
 	 * @return the assigned Subprogram Chair
 	 */
 	public SubprogramChair getSubprogramChair() {
@@ -175,6 +179,7 @@ public class Paper implements java.io.Serializable {
 
 	/**
 	 * This method returns the Reviewer assigned to this Paper
+	 * 
 	 * @return the assigned Reviewer
 	 */
 	public Reviewer getReviewer() {
@@ -183,6 +188,7 @@ public class Paper implements java.io.Serializable {
 
 	/**
 	 * This method returns the Author assigned to this Paper
+	 * 
 	 * @return the assigned Author
 	 */
 	public Author getAuthor() {
@@ -190,8 +196,8 @@ public class Paper implements java.io.Serializable {
 	}
 
 	/**
-	 * This method returns the name of this Paper. Name is the
-	 * 		same as title.
+	 * This method returns the name of this Paper. Name is the same as title.
+	 * 
 	 * @return the name of the Paper
 	 */
 	public String getName() {
@@ -199,8 +205,8 @@ public class Paper implements java.io.Serializable {
 	}
 
 	/**
-	 * This method returns the ID for the Conference that this 
-	 * 		Paper belongs to. 
+	 * This method returns the ID for the Conference that this Paper belongs to.
+	 * 
 	 * @return the ID for the COnference
 	 */
 	public int getConferenceID() {
@@ -208,9 +214,11 @@ public class Paper implements java.io.Serializable {
 	}
 
 	/**
-	 * This method will be used to set the state of the Paper
-	 * 		Different possible states are explained in myStatus
-	 * @param theStatus The state of the Paper
+	 * This method will be used to set the state of the Paper Different possible
+	 * states are explained in myStatus
+	 * 
+	 * @param theStatus
+	 *            The state of the Paper
 	 */
 	public int getStatusPaper() {
 		return myStatus;
@@ -218,6 +226,7 @@ public class Paper implements java.io.Serializable {
 
 	/**
 	 * This method returns the Reviewer assigned to this Paper
+	 * 
 	 * @return the assigned Reviewer
 	 */
 	public String getReview() {
@@ -225,8 +234,8 @@ public class Paper implements java.io.Serializable {
 	}
 
 	/**
-	 * This method returns the recommendation submitted for this 
-	 * 		Paper
+	 * This method returns the recommendation submitted for this Paper
+	 * 
 	 * @return the submitted recommendation
 	 */
 	public String getRecommendation() {
@@ -234,9 +243,10 @@ public class Paper implements java.io.Serializable {
 	}
 
 	/**
-	 * This method returns the name of the file associated to this
-	 * 		Paper. The location of the actual file is on local 
-	 * 		storage. The path to the file is in User class.
+	 * This method returns the name of the file associated to this Paper. The
+	 * location of the actual file is on local storage. The path to the file is
+	 * in User class.
+	 * 
 	 * @return the name of the associated file to this Paper
 	 */
 	public String getFile() {
@@ -244,67 +254,76 @@ public class Paper implements java.io.Serializable {
 	}
 
 	/**
-	 * This method assigns a Program Chair to this Paper. A 
-	 * 		Program Chair can accept or reject this Paper.
-	 * @param theProgramChair the Program Chair assigned to 
-	 * 		this Paper
+	 * This method assigns a Program Chair to this Paper. A Program Chair can
+	 * accept or reject this Paper.
+	 * 
+	 * @param theProgramChair
+	 *            the Program Chair assigned to this Paper
 	 */
 	public void setProgramchair(ProgramChair theProgramChair) {
 		myProgramChair = theProgramChair;
 	}
 
 	/**
-	 * This method assigns a Subprogram Chair to this Paper. A 
-	 * 		Program Chair can assign a Reviewer to this Paper. 
-	 * 		A Subprogram Chair also can add recommendation to 
-	 * 		this Paper.
-	 * @param theSubprogramChair the Subprogram Chair assigned 
-	 * 		to this Paper
+	 * This method assigns a Subprogram Chair to this Paper. A Program Chair can
+	 * assign a Reviewer to this Paper. A Subprogram Chair also can add
+	 * recommendation to this Paper.
+	 * 
+	 * @param theSubprogramChair
+	 *            the Subprogram Chair assigned to this Paper
 	 */
 	public void setSubprogramChair(SubprogramChair theSubprogramChair) {
 		mySubprogramChair = theSubprogramChair;
 	}
 
 	/**
-	 * This method assigns a Reviewer to this Paper. A Reviewer
-	 * 		can add Review to this Paper.
-	 * @param theReviewer the Reviewer assigned to this Paper
+	 * This method assigns a Reviewer to this Paper. A Reviewer can add Review
+	 * to this Paper.
+	 * 
+	 * @param theReviewer
+	 *            the Reviewer assigned to this Paper
 	 */
 	public void setReviewer(Reviewer theReviewer) {
 		myReviewer = theReviewer;
 	}
 
 	/**
-	 * This method assigns an Author to this Paper. An Author
-	 * 		can unsubmit this Paper.
-	 * @param theAuthor the Author of this Paper
+	 * This method assigns an Author to this Paper. An Author can unsubmit this
+	 * Paper.
+	 * 
+	 * @param theAuthor
+	 *            the Author of this Paper
 	 */
 	public void setAuthor(Author theAuthor) {
 		myAuthor = theAuthor;
 	}
 
 	/**
-	 * This method sets the name of this Paper. Name is the
-	 * 		same as title.
-	 * @param theName the name of this Paper
+	 * This method sets the name of this Paper. Name is the same as title.
+	 * 
+	 * @param theName
+	 *            the name of this Paper
 	 */
 	public void setName(String theName) {
 		myName = theName;
 	}
 
 	/**
-	 * This method sets the Conference that this Paper belongs
-	 * 		to.
-	 * @param theConferenceID the ID for the Conference
+	 * This method sets the Conference that this Paper belongs to.
+	 * 
+	 * @param theConferenceID
+	 *            the ID for the Conference
 	 */
 	public void setConference(int theConferenceID) {
 		myConferenceID = theConferenceID;
 	}
 
 	/**
-	 * This method will be used to set the state of the Paper.
-	 * 		Different possible states are explained in myStatus
-	 * @param theStatus The state of the Paper
+	 * This method will be used to set the state of the Paper. Different
+	 * possible states are explained in myStatus
+	 * 
+	 * @param theStatus
+	 *            The state of the Paper
 	 */
 	public void setStatusPaper(int theStatus) {
 		myStatus = theStatus;
@@ -312,52 +331,63 @@ public class Paper implements java.io.Serializable {
 
 	/**
 	 * This method will be used to set the file of the Paper.
-	 * @param theFile The file of the Paper
+	 * 
+	 * @param theFile
+	 *            The file of the Paper
 	 */
 	public void setFile(String theFile) {
 		myFile = theFile;
 	}
 
 	/**
-	 * This method will be used to set the ID of the Paper.
-	 * 		The ID will be used to identify the Paper.
-	 * @param theID The ID for the Paper
+	 * This method will be used to set the ID of the Paper. The ID will be used
+	 * to identify the Paper.
+	 * 
+	 * @param theID
+	 *            The ID for the Paper
 	 */
 	public void setID(int theID) {
 		myPaperID = theID;
 	}
 
 	/**
-	 * This method will be used to set the ID of the Paper.
-	 * 		The ID will be used to identify the Paper.
-	 * @param theID The ID for the Paper
+	 * This method will be used to set the ID of the Paper. The ID will be used
+	 * to identify the Paper.
+	 * 
+	 * @param theID
+	 *            The ID for the Paper
 	 */
 	public int getID() {
 		return myPaperID;
 	}
 
 	/**
-	 * This method will be used to submit a review for the
-	 * 		the Paper. The review will be in form of a file.
-	 * @param theReview The file of the review
+	 * This method will be used to submit a review for the the Paper. The review
+	 * will be in form of a file.
+	 * 
+	 * @param theReview
+	 *            The file of the review
 	 */
 	public void submitReview(String theReview) {
 		myReview = theReview;
 	}
 
 	/**
-	 * This method will be used to submit a recommendation for 
-	 * 		the	Paper. The recommendation will be in form of a 
-	 * 		file.
-	 * @param theRecommendation The file of the recommendation
+	 * This method will be used to submit a recommendation for the Paper. The
+	 * recommendation will be in form of a file.
+	 * 
+	 * @param theRecommendation
+	 *            The file of the recommendation
 	 */
 	public void submitRecommendation(String theRecommendation) {
 		myRecommendation = theRecommendation;
 	}
-	
+
 	/**
 	 * This method will edit the name of the Paper
-	 * @param theName The new name for the Paper
+	 * 
+	 * @param theName
+	 *            The new name for the Paper
 	 */
 	public void editPaper(String theName) {
 		myName = theName;

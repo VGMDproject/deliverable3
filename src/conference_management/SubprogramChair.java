@@ -40,12 +40,12 @@ public class SubprogramChair extends User implements java.io.Serializable {
 	 * The current logged in user.
 	 */
 	private User myUser;
-	
+
 	/**
 	 * An instance of Subprogram Chair
 	 */
 	private User mySPCUser;
-	
+
 	/**
 	 * The prompt menu
 	 */
@@ -54,14 +54,18 @@ public class SubprogramChair extends User implements java.io.Serializable {
 	/**
 	 * Default constructor for testing purposes
 	 */
-	public SubprogramChair()  {
-		
+	public SubprogramChair() {
+
 	}
-	
+
 	/**
-	 * This constructor will be used if a new Subprogram Chair object was needed.
-	 * @param theUser The current logged in user
-	 * @param theConferenceID The current selected Conference
+	 * This constructor will be used if a new Subprogram Chair object was
+	 * needed.
+	 * 
+	 * @param theUser
+	 *            The current logged in user
+	 * @param theConferenceID
+	 *            The current selected Conference
 	 */
 	public SubprogramChair(User theUser, int theConferenceID) {
 		super(theUser.getUserName());
@@ -76,10 +80,15 @@ public class SubprogramChair extends User implements java.io.Serializable {
 	}
 
 	/**
-	 * This constructor will be used if a new Subprogram Chair object was needed.
-	 * @param theUser The current logged in user
-	 * @param theUserName The user name of the current logged in user
-	 * @param thePaperIndex The current selected Paper to be assigned
+	 * This constructor will be used if a new Subprogram Chair object was
+	 * needed.
+	 * 
+	 * @param theUser
+	 *            The current logged in user
+	 * @param theUserName
+	 *            The user name of the current logged in user
+	 * @param thePaperIndex
+	 *            The current selected Paper to be assigned
 	 */
 	public SubprogramChair(User theUser, String theUserName, int thePaperIndex) {
 		myUser = theUser;
@@ -93,6 +102,7 @@ public class SubprogramChair extends User implements java.io.Serializable {
 
 	/**
 	 * This method returns the current logged in user name
+	 * 
 	 * @return the logged in user name
 	 */
 	public String getSPCUser() {
@@ -101,18 +111,20 @@ public class SubprogramChair extends User implements java.io.Serializable {
 
 	/**
 	 * Sets the current Subprogram Chair
-	 * @param theSPC The current Subprogram Chair to be set
+	 * 
+	 * @param theSPC
+	 *            The current Subprogram Chair to be set
 	 */
 	public void setSPCUser(final User theSPC) {
 		mySPCUser = theSPC;
 	}
-	
+
 	/**
-	 * This method takes care of prompting user and perform any action
-	 * 		that a Subprogram Chair is permitted to do. These actions 
-	 * 		are listed in the option array instance variables. 
+	 * This method takes care of prompting user and perform any action that a
+	 * Subprogram Chair is permitted to do. These actions are listed in the
+	 * option array instance variables.
 	 */
-	public void promptSPC()  {
+	public void promptSPC() {
 		int optionIndex = 0;
 		System.out.println("\nSelect a paper to go to Paper Management: ");
 		for (Paper localPaper : myUser.myPaperArrayList) {
@@ -120,7 +132,8 @@ public class SubprogramChair extends User implements java.io.Serializable {
 					&& localPaper.getSubprogramChair().getSPCUser().equals(myUser.getUserName())
 					&& localPaper.getConferenceID() == myUser.getSelectedConferenceID()) {
 				System.out.println(
-						++optionIndex + ") " + localPaper.getName() + " by " + localPaper.getAuthor().getUserName());
+						++optionIndex + ") " + localPaper.getName() + " by " + localPaper.getAuthor()
+						.getUserName());
 			}
 		}
 
@@ -133,7 +146,7 @@ public class SubprogramChair extends User implements java.io.Serializable {
 
 			int selectedPaperIndex = Integer.valueOf(myUser.readConsole());
 
-			if(selectedPaperIndex <= paperCounter) {
+			if (selectedPaperIndex <= paperCounter) {
 				int selectedPaperID = -1;
 				for (Paper localPaper : myUser.myPaperArrayList) {
 					if (localPaper.getSubprogramChair() != null
@@ -195,7 +208,7 @@ public class SubprogramChair extends User implements java.io.Serializable {
 
 			int selectedUserIndex = Integer.valueOf(myUser.readConsole()) - 1;
 
-			if(selectedUserIndex < myUser.getUserList().size()) {
+			if (selectedUserIndex < myUser.getUserList().size()) {
 				// check to see if author is the same as the reviewer
 				if (myUser.myPaperArrayList.get(selectedPaperIndex).getAuthor().getUsername()
 						.equals(myUser.myUserArrayList.get(selectedUserIndex).getUserName())) {
@@ -221,7 +234,8 @@ public class SubprogramChair extends User implements java.io.Serializable {
 								myUser.myUserArrayList.get(selectedUserIndex).getUserName(),
 								myUser.getPaperIndex(selectedPaper.getID()));
 						myUser.myPaperArrayList.get(myUser.getPaperIndex(selectedPaperID)).setReviewer(localReviewer);
-						myUser.myUserArrayList.get(myUser.getUserIndex(localReviewer.getReviewerUser())).setReviewer(true);
+						myUser.myUserArrayList.get(myUser.getUserIndex(localReviewer.getReviewerUser()))
+						.setReviewer(true);
 						myUser.myUpdateSerFilePaper.makeSerialize(myUser.myPaperArrayList);
 						myUser.myUpdateSerFileUser.makeSerialize(myUser.myUserArrayList);
 						System.out
@@ -234,15 +248,14 @@ public class SubprogramChair extends User implements java.io.Serializable {
 						promptPaperManagement(selectedPaperID);
 					}
 				}
-				
 				break;
 			} else {
 				System.out.println(selectedUserIndex + 1 - myUser.getUserList().size());
 				switch (selectedUserIndex + 1 - myUser.getUserList().size()) {
-				case 1:	// go back
+				case 1: // go back
 					promptPaperManagement(selectedPaperID);
 					break;
-				case 2:	// log out
+				case 2: // log out
 					myUser.logout();
 					break;
 				}
@@ -253,8 +266,8 @@ public class SubprogramChair extends User implements java.io.Serializable {
 
 			System.out.println("Select the file for the new recommendation for the paper "
 					+ myUser.myPaperArrayList.get(myUser.getPaperIndex(selectedPaperID)).getName() + ": ");
-			myUser.myPaperArrayList.get(myUser.getPaperIndex(selectedPaperID)).submitRecommendation(myUser
-					.chooseFile(myUser.getUserName() + "_" + selectedPaperID, myUser.RECOMMENDATION_FILE_PATH));
+			myUser.myPaperArrayList.get(myUser.getPaperIndex(selectedPaperID)).submitRecommendation(
+					myUser.chooseFile(myUser.getUserName() + "_" + selectedPaperID, myUser.RECOMMENDATION_FILE_PATH));
 			myUser.myUpdateSerFilePaper.makeSerialize(myUser.myPaperArrayList);
 			System.out.println("The recommendation was submitted.");
 			promptPaperManagement(selectedPaperID);
