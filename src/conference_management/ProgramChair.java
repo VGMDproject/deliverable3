@@ -28,7 +28,7 @@ import java.util.Date;
  * @author Daniel Bayless
  * @author Gabriela Orozco
  * @author Vu Hoang
- * @version 05/26/2016
+ * @version 05/31/2016
  * @since May 10, 2016
  */
 public class ProgramChair extends User implements java.io.Serializable {
@@ -283,7 +283,7 @@ public class ProgramChair extends User implements java.io.Serializable {
 				if (selectedPaper.getAuthor().getUserName()
 						.equals(myUser.myUserArrayList.get(selectedUserIndex).getUserName())) {
 					System.out.println("Subprogram Chair cannot be the same as the Author.");
-					promptPC();
+					promptPaperManagement(selectedPaper.getID());
 				} else {
 					int totalSPCForUser = 0;
 					for (Paper localPaper : myUser.myPaperArrayList) {

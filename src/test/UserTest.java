@@ -22,7 +22,7 @@ import conference_management.User;
  * </pre>
  * 
  * @author Moe Abdipour
- * @version 05/26/2016
+ * @version 05/31/2016
  * @since May 26, 2016
  */
 public class UserTest {

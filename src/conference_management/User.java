@@ -41,7 +41,7 @@ import javax.swing.JFileChooser;
  * @author Daniel Bayless
  * @author Gabriela Orozco
  * @author Vu Hoang
- * @version 05/26/2016
+ * @version 05/31/2016
  * @since May 10, 2016
  */
 public class User implements java.io.Serializable {
@@ -59,8 +59,14 @@ public class User implements java.io.Serializable {
 	 * The path to the directory that holds the Review files
 	 */
 	public final String REVIEW_FILE_PATH = "review\\";
-
-	public final String[] myAcceptableFileExtensions = { "txt", "doc", "docx" };
+	
+	/**
+	 * The list of accepted file extensions. For various reasons, the
+	 * 		program will not display the contents of any file with other
+	 * 		extensions. In those cases, the file name will be displayed
+	 * 		to the user.
+	 */
+	public final String[] myAcceptableFileExtensions = { "txt" };
 
 	/**
 	 * The path to the directory that holds the Recommendation files

@@ -27,7 +27,7 @@ package conference_management;
  * @author Daniel Bayless
  * @author Gabriela Orozco
  * @author Vu Hoang
- * @version 05/26/2016
+ * @version 05/31/2016
  * @since May 10, 2016
  */
 public class SubprogramChair extends User implements java.io.Serializable {
