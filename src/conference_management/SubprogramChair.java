@@ -131,9 +131,8 @@ public class SubprogramChair extends User implements java.io.Serializable {
 			if (localPaper.getSubprogramChair() != null
 					&& localPaper.getSubprogramChair().getSPCUser().equals(myUser.getUserName())
 					&& localPaper.getConferenceID() == myUser.getSelectedConferenceID()) {
-				System.out.println(
-						++optionIndex + ") " + localPaper.getName() + " by " + localPaper.getAuthor()
-						.getUserName());
+				System.out.println(++optionIndex + ") " + localPaper.getName() + " by "
+						+ localPaper.getAuthor().getUserName());
 			}
 		}
 
@@ -150,7 +149,8 @@ public class SubprogramChair extends User implements java.io.Serializable {
 				int selectedPaperID = -1;
 				for (Paper localPaper : myUser.myPaperArrayList) {
 					if (localPaper.getSubprogramChair() != null
-							&& localPaper.getSubprogramChair().getSPCUser().equals(myUser.getUserName())) {
+							&& localPaper.getSubprogramChair().getSPCUser().equals(myUser.getUserName())
+							&& localPaper.getConferenceID() == myUser.getSelectedConferenceID()) {
 						selectedPaperIndex--;
 						if (selectedPaperIndex == 0) {
 							selectedPaperID = localPaper.getID();
@@ -178,7 +178,6 @@ public class SubprogramChair extends User implements java.io.Serializable {
 	}
 
 	public void promptPaperManagement(int theSelectedPaperID) {
-
 		int selectedPaperID = theSelectedPaperID;
 		int selectedPaperIndex = myUser.getPaperIndex(theSelectedPaperID);
 		int optionIndex = 0;
@@ -195,7 +194,6 @@ public class SubprogramChair extends User implements java.io.Serializable {
 
 		switch (selectedOption) {
 		case 1: // Assign a Reviewer
-
 			System.out.println("\nChoose a user as the Reviewer for this paper: ");
 			optionIndex = 0;
 			for (User localUser : myUser.getUserList()) {
@@ -212,13 +210,15 @@ public class SubprogramChair extends User implements java.io.Serializable {
 				// check to see if author is the same as the reviewer
 				if (myUser.myPaperArrayList.get(selectedPaperIndex).getAuthor().getUsername()
 						.equals(myUser.myUserArrayList.get(selectedUserIndex).getUserName())) {
-					System.out.println("A reviewer cannot be the same as the Author.");
+					System.out.println("Reviewer cannot be the same as the Author.");
 					promptPaperManagement(selectedPaperID);
 				} else {
 					int totalReviewForSelectedUser = 0;
 					for (Paper localPaper : myUser.myPaperArrayList) {
-						if (localPaper.getReviewer() != null && localPaper.getReviewer().getReviewerUser()
-								.equals(myUser.myUserArrayList.get(selectedUserIndex).getUserName())) {
+						if (localPaper.getReviewer() != null
+								&& localPaper.getReviewer().getReviewerUser()
+								.equals(myUser.myUserArrayList.get(selectedUserIndex).getUserName())
+								&& localPaper.getConferenceID() == myUser.getSelectedConferenceID()) {
 							totalReviewForSelectedUser++;
 						}
 					}
@@ -226,7 +226,7 @@ public class SubprogramChair extends User implements java.io.Serializable {
 					Paper selectedPaper = myUser.myPaperArrayList.get(myUser.getPaperIndex(selectedPaperID));
 					// check to see if the maximum number of review has been
 					// assigned to the selected user
-					if (totalReviewForSelectedUser > myUser.MAX_REVIEW) {
+					if (totalReviewForSelectedUser >= myUser.MAX_REVIEW) {
 						System.out.println("This user has already been assigned the maximum (" + myUser.MAX_REVIEW
 								+ ") possible papers.");
 					} else {
@@ -261,11 +261,8 @@ public class SubprogramChair extends User implements java.io.Serializable {
 				}
 			}
 		case 2: // Submit Recommendation
-			System.out.println("Add your recommendation for the paper "
-					+ myUser.myPaperArrayList.get(myUser.getPaperIndex(selectedPaperID)).getName() + ": ");
-
-			System.out.println("Select the file for the new recommendation for the paper "
-					+ myUser.myPaperArrayList.get(myUser.getPaperIndex(selectedPaperID)).getName() + ": ");
+			System.out.println("Select the file for the new recommendation for the paper \""
+					+ myUser.myPaperArrayList.get(myUser.getPaperIndex(selectedPaperID)).getName() + "\": ");
 			myUser.myPaperArrayList.get(myUser.getPaperIndex(selectedPaperID)).submitRecommendation(
 					myUser.chooseFile(myUser.getUserName() + "_" + selectedPaperID, myUser.RECOMMENDATION_FILE_PATH));
 			myUser.myUpdateSerFilePaper.makeSerialize(myUser.myPaperArrayList);

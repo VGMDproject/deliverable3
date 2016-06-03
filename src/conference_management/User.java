@@ -498,7 +498,7 @@ public class User implements java.io.Serializable {
 			int conferenceCounter = 0;
 			System.out.println(mySelectPrompt);
 			for (Conference tempConference : myConferenceArrayList) {
-				System.out.println(++conferenceCounter + ") View Conference \"" 
+				System.out.println(++conferenceCounter + ") Go to Conference \"" 
 						+ tempConference.getName() + "\"");
 			}
 
@@ -923,7 +923,7 @@ public class User implements java.io.Serializable {
 		while (!input.hasNext()) {
 		}
 
-		String returnDate = input.next();
+		String returnDate = input.nextLine();
 		return returnDate;
 	}
 }
