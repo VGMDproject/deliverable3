@@ -36,7 +36,7 @@ public class ProgramChair extends User implements java.io.Serializable {
 	 * The Java auto generated serialization version number
 	 */
 	private static final long serialVersionUID = -2838033436148976263L;
-
+	
 	/**
 	 * The current logged in user.
 	 */

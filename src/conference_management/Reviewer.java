@@ -29,7 +29,7 @@ public class Reviewer extends User implements java.io.Serializable {
 	 * The Java auto generated serialization version number
 	 */
 	private static final long serialVersionUID = 8269419358241983344L;
-
+	
 	/**
 	 * The current logged in user.
 	 */

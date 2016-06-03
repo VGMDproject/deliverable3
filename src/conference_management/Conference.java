@@ -40,7 +40,7 @@ public class Conference implements java.io.Serializable {
 	 * Name is the same as the title of the Conference
 	 */
 	private String myName;
-
+	
 	/**
 	 * The status which may be assigned to any integer number. The default value
 	 * is 1 meaning the Conference is active. A Conference with myStatus equals

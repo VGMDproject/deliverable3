@@ -38,7 +38,7 @@ public final class Main {
 	 */
 	private Main() {
 	}
-
+	
 	/**
 	 * The main class that runs the program.
 	 */

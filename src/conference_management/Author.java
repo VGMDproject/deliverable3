@@ -205,7 +205,7 @@ public class Author extends User implements java.io.Serializable {
 			}
 		}
 	}
-
+	
 	/**
 	 * This method returns the current logged in user name
 	 * 

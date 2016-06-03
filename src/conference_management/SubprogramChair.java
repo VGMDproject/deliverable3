@@ -189,7 +189,7 @@ public class SubprogramChair extends User implements java.io.Serializable {
 		for (String tempString : myUser.myBackOutOption) {
 			System.out.println(++optionIndex + ") " + tempString);
 		}
-
+		
 		int selectedOption = Integer.valueOf(myUser.readConsole());
 
 		switch (selectedOption) {
